@@ -1,6 +1,7 @@
 package com.example.Komorebi.controllers;
 
 import com.example.Komorebi.models.Tag;
+import com.example.Komorebi.models.Video;
 import com.example.Komorebi.services.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,5 +20,22 @@ public class TagController {
     }
 
     @GetMapping("/todos")
-    public List<Tag> getAll() { return tagService.getTags(); }
+    public List<Tag> getAll() {
+        return tagService.getTags();
+    }
+
+    @GetMapping("/obtener/{id}")
+    public Tag getTag(@PathVariable("id") int id) {
+        return tagService.getById(id);
+    }
+
+    @PostMapping("/create")
+    public Tag createTag() {
+        return tagService.createTag();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteTag(@PathVariable("id") int id) {
+        tagService.deleteTag(id);
+    }
 }

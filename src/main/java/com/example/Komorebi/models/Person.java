@@ -3,6 +3,11 @@ package com.example.Komorebi.models;
 public class Person {
     private String name;
     private int age;
+    private Boolean isActive;
+
+    public Boolean getActive() { return isActive; }
+
+    public void setActive(Boolean active) { isActive = active; }
 
     public String getName() {
         return name;

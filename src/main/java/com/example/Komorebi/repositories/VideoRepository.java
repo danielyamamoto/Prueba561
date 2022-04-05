@@ -30,4 +30,30 @@ public class VideoRepository {
 
         return videos;
     }
+
+    public Video findById(int id) {
+        Video v1 = new Video();
+        v1.setIdAgente("Tote1234");
+        v1.setTag("Ropa");
+        v1.setCategory("Ventas");
+        v1.setTimestamp(new Timestamp(1649035032543l));
+        v1.setSuccessfulOutcome(true);
+        return v1;
+    }
+
+    public Video createVideo() {
+        Video v1 = new Video();
+        v1.setActive(true);
+        v1.setIdAgente("Tote1234");
+        v1.setTag("Ropa");
+        v1.setCategory("Ventas");
+        v1.setTimestamp(new Timestamp(1649035032543l));
+        v1.setSuccessfulOutcome(true);
+        return v1;
+    }
+
+    public void deleteVideo(int id) {
+        Video v1 = new Video();
+        v1.setActive(false);
+    }
 }

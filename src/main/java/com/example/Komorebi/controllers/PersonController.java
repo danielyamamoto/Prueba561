@@ -1,6 +1,7 @@
 package com.example.Komorebi.controllers;
 
 import com.example.Komorebi.models.Person;
+import com.example.Komorebi.models.Tag;
 import com.example.Komorebi.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,4 +44,12 @@ public class PersonController {
     public Person findById(@PathVariable("id") int id) {
         return  personService.getById(id);
     }
+
+    @PostMapping("/create")
+    public Person createPerson() {
+        return personService.createPerson();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deletePerson(@PathVariable("id") int id) { personService.deletePerson(id); }
 }

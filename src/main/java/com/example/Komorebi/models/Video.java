@@ -3,17 +3,23 @@ package com.example.Komorebi.models;
 import java.sql.Timestamp;
 
 public class Video {
-    Timestamp timestamp;
-    boolean successfulOutcome;
-    String idAgente, tag, category;
+    private Timestamp timestamp;
+    private Boolean successfulOutcome, isActive;
+    private String idAgente, tag, category;
+
+    public Boolean getSuccessfulOutcome() { return successfulOutcome; }
+
+    public void setSuccessfulOutcome(Boolean successfulOutcome) { this.successfulOutcome = successfulOutcome; }
 
     public String getIdAgente() {
         return idAgente;
     }
 
-    public void setIdAgente(String idAgente) {
-        this.idAgente = idAgente;
-    }
+    public Boolean getActive() { return isActive; }
+
+    public void setActive(Boolean active) { isActive = active; }
+
+    public void setIdAgente(String idAgente) { this.idAgente = idAgente; }
 
     public String getTag() {
         return tag;
@@ -39,7 +45,7 @@ public class Video {
         this.timestamp = timestamp;
     }
 
-    public boolean isSuccessfulOutcome() {
+    public Boolean isSuccessfulOutcome() {
         return successfulOutcome;
     }
 

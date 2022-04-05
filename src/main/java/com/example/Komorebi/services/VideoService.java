@@ -23,4 +23,10 @@ public class VideoService {
     }
 
     public List<Video> getAllVideos() { return videoRepository.findAll(); }
+
+    public Video createVideo() { return videoRepository.createVideo(); }
+
+    public void deleteVideo(int id) { videoRepository.deleteVideo(id); }
+
+    public Video getById(int id) { return videoRepository.findById(id); }
 }

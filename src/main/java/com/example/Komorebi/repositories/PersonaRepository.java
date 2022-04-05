@@ -30,4 +30,19 @@ public class PersonaRepository {
         p1.setAge(33);
         return p1;
     }
+
+    public Person createPerson() {
+        Person p1 = new Person();
+        p1.setActive(true);
+        p1.setName("Juan");
+        p1.setAge(33);
+        return p1;
+    }
+
+    public void deletePerson(int id) {
+        Person p1 = new Person();
+        p1.setActive(true);
+        p1.setName("Juan");
+        p1.setAge(33);
+    }
 }

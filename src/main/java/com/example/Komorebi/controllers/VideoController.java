@@ -2,7 +2,7 @@ package com.example.Komorebi.controllers;
 
 import com.example.Komorebi.models.Video;
 import com.example.Komorebi.services.VideoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework  .beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,5 +24,22 @@ public class VideoController {
     }
 
     @GetMapping("/todos")
-    public List<Video> getAll() { return videoService.getAllVideos(); }
+    public List<Video> getAll() {
+        return videoService.getAllVideos();
+    }
+
+    @GetMapping("/obtener/{id}")
+    public Video getVideo(@PathVariable("id") int id) {
+        return videoService.getById(id);
+    }
+
+    @PostMapping("/create")
+    public Video createVideo() {
+        return videoService.createVideo();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteVideo(@PathVariable("id") int id) {
+        videoService.deleteVideo(id);
+    }
 }

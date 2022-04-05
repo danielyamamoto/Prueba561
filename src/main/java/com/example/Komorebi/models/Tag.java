@@ -1,16 +1,16 @@
 package com.example.Komorebi.models;
 
 public class Tag {
-    private String name;
-    private String category;
+    private String name, category;
+    private Boolean isActive;
 
-    public String getCategory() {
-        return category;
-    }
+    public Boolean getActive() { return isActive; }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+    public void setActive(Boolean active) { isActive = active; }
+
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 
     public void setName(String name) {
         this.name = name;

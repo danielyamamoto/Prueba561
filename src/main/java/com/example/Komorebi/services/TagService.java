@@ -17,5 +17,11 @@ public class TagService {
         return tag;
     }
 
+    public Tag getById(int id) { return tagRepository.findById(id); }
+
     public List<Tag> getTags() { return tagRepository.findAll(); }
+
+    public void deleteTag(int id) { tagRepository.deleteTag(id); }
+
+    public Tag createTag() { return tagRepository.createTag(); }
 }
