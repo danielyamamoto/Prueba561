@@ -14,8 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
 @Configuration
-@EnableDynamoDBRepositories
-        (basePackages = "com.example.Komorebi.repositories")
+@EnableDynamoDBRepositories(basePackages = "com.example.Komorebi.repositories")
 public class DynamoConfig {
 
     @Value("${amazon.dynamodb.endpoint}")
@@ -29,16 +28,15 @@ public class DynamoConfig {
 
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
-        AmazonDynamoDB amazonDynamoDB
-                = new AmazonDynamoDBClient(amazonAWSCredentials());
+        AmazonDynamoDB amazonDynamoDB = new AmazonDynamoDBClient(amazonAWSCredentials());
 
         if (!StringUtils.isEmpty(amazonDynamoDBEndpoint)) {
             amazonDynamoDB.setEndpoint(amazonDynamoDBEndpoint);
         }
 
         return AmazonDynamoDBClientBuilder.standard().withEndpointConfiguration(
-                        new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "localhost")).withCredentials(
-                        new AWSStaticCredentialsProvider(new BasicAWSCredentials("87kvbg", "j1w7y"))
+                        new AwsClientBuilder.EndpointConfiguration(amazonDynamoDBEndpoint, "localhost")).withCredentials(
+                        new AWSStaticCredentialsProvider(new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey))
                 )
                 .build();
 
