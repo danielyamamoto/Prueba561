@@ -8,6 +8,6 @@ class KomorebiApplicationTests {
 
 	@Test
 	void contextLoads() {
-	}
 
+	}
 }

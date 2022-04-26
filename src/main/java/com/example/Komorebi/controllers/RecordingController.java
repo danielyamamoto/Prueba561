@@ -3,9 +3,7 @@ package com.example.Komorebi.controllers;
 import com.example.Komorebi.models.Recording;
 import com.example.Komorebi.services.RecordingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,12 @@ public class RecordingController {
     @GetMapping("/all")
     public List<Recording> getAllRecordings() {
         return recordingService.findAll();
+    }
+
+    @PostMapping("/save")
+    public Recording saveRecording(@RequestBody Recording R) {
+        System.out.println(R.getAgentId());
+        System.out.println(R.getTimestamp());
+        return recordingService.saveRecording(R);
     }
 }

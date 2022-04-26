@@ -15,4 +15,7 @@ public class RecordingService {
     public List<Recording> findAll() {
         return recordingRepository.findAll();
     }
+
+    // Post
+    public Recording saveRecording(Recording R) { return recordingRepository.save(R); }
 }
