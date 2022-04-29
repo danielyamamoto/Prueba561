@@ -24,4 +24,11 @@ public class RecordingController {
         System.out.println(R.getTimestamp());
         return recordingService.saveRecording(R);
     }
+
+    /*
+    @DeleteMapping("/deleteById")
+    public void deleteRecordingById(@RequestBody Recording R) {
+        recordingService.deleteRecordingById(R);
+    }
+     */
 }

@@ -18,4 +18,7 @@ public class RecordingService {
 
     // Post
     public Recording saveRecording(Recording R) { return recordingRepository.save(R); }
+
+    // Delete by ID
+    //public void deleteRecordingById(Recording R) { recordingRepository.deleteById(R.getRecordingKey()); }
 }

@@ -15,6 +15,9 @@ public class Recording {
     private Boolean successfulOutcome, allowSharing;
     private Set<String> tag;
 
+    // RecordingKey ID
+    //public RecordingKey getRecordingKey() { return recordingKey; }
+
     // Partition key
     @DynamoDBHashKey(attributeName = "agentId")
     public String getAgentId() {

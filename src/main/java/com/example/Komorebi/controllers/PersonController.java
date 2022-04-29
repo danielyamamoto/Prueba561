@@ -50,6 +50,6 @@ public class PersonController {
         return personService.createPerson();
     }
 
-    @DeleteMapping("/delete/    {id}")
+    @DeleteMapping("/delete/{id}")
     public void deletePerson(@PathVariable("id") int id) { personService.deletePerson(id); }
 }

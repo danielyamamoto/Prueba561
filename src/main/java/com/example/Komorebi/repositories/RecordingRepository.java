@@ -13,4 +13,5 @@ import java.util.List;
 public interface RecordingRepository extends CrudRepository<Recording, RecordingKey> {
     List<Recording> findAll();
     Recording save(Recording R);
+    //void deleteById(RecordingKey recordingKey);
 }
