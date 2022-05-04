@@ -36,12 +36,15 @@ public class UserController {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        // Get token password
         String jwt = jwtUtils.generateJwtToken(authentication);
-        UserDetails u= userDetailsService.loadUserByUsername(user.getUsername());
+        // Get user by username
+        UserDetails u = userDetailsService.loadUserByUsername(user.getUsername());
+        // Get roles
         List<String> roles = u.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
-        return ResponseEntity.ok(new JwtResponse(jwt,"Bearer"));
+        return ResponseEntity.ok(new JwtResponse(jwt, roles.get(0)));
     }
 
     @GetMapping("/profile")

@@ -12,10 +12,7 @@ import java.util.List;
 
 @DynamoDBTable(tableName = "User")
 public class User implements UserDetails {
-    //@Id
-    private String userId;
-
-    private String username, password;
+    private String userId, username, password, role;
 
     @DynamoDBHashKey(attributeName = "userId")
     public String getUserId() { return userId; }
@@ -32,6 +29,12 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @DynamoDBAttribute(attributeName = "role")
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) { this.role = role; }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -61,7 +64,7 @@ public class User implements UserDetails {
         authorities.add(new GrantedAuthority() {
             @Override
             public String getAuthority() {
-                return "ADMIN";
+                return role;
             }
         });
 
